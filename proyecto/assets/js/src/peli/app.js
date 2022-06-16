@@ -1,6 +1,7 @@
 import Add from './modules/add.js';
 import List from './modules/list.js';
 import Storage from './modules/storage.js';
+import search from './modules/search.js';
 
 export default class App {
     constructor() {
@@ -22,6 +23,7 @@ export default class App {
         this.list.show(pelis);
 
         // buscar peliculas
+        search();
 
         console.log('La APP de Películas ha sido inicializada...');
 

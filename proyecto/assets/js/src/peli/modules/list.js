@@ -46,7 +46,6 @@ export default class List {
         deleteOfdList();
 
         // funcionalidad btn edicion
-
         editList();
 
     }

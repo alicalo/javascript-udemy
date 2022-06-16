@@ -152,7 +152,10 @@ input[type="button"] {
 
 .lateral input[type="text"],
 .lateral input[type="search"],
-.lateral textarea {
+.lateral textarea,
+.edit-form input[type="text"],
+.edit-form input[type="search"],
+.edit-form textarea {
     display: flex;
     margin: 0 auto;
     margin-top: 15px;
@@ -164,6 +167,11 @@ input[type="button"] {
     opacity: 4;
     outline: 0;
     border-color: transparent;
+}
+
+.edit-form {
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
 }
 
 .footer {

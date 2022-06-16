@@ -15,7 +15,7 @@ export default function() {
         let edit_btn = peli.querySelector(".edit");
 
         edit_btn.onclick = function () {
-            // const id = this.getAttribute('data-id');
+            const peli_id = parseInt(this.getAttribute('data-id'));
             edit_btn.remove();
             peli.querySelector(".delete").remove();
 
@@ -24,7 +24,7 @@ export default function() {
                 <div class="edit-form">
                     <h3 class="title">Editar película</h3>
                     <form>
-                        <input type="text" class="edited_title" value="${peli.querySelector(".title").innerHTML}"></input>
+                        <input type="text" class="edited-title" value="${peli.querySelector(".title").innerHTML}"></input>
                         <textarea class="edited-description">${peli.querySelector(".description").innerHTML}</textarea>
                         <input type="submit" class="update" value="Actualizar" />
                     </form>
@@ -33,17 +33,24 @@ export default function() {
             `;
 
             peli.innerHTML += peli_edit_html;
-            // seleccionar el btn actualizar
 
-            // aplicar evento click
+            let update_btn = peli.querySelector('.update');
+            update_btn.onclick = function(e) {
+                e.preventDefault();
 
-                // buscar el indice de la peli a actualizar
+                let index = pelis_storage.findIndex(peli => peli.id === peli_id);
+                pelis_storage[index] = {
+                    id: peli_id,
+                    title: peli.querySelector('.edited-title').value,
+                    description: peli.querySelector('.edited-description').value,
+                }
 
-                // guardar objeto en ese indice
+                // actualizar en el LS
+                storage.saveData(pelis_storage);
+                list.show(pelis_storage);
 
-                // actualizar el localStorage
-
-                // mostrar el listado
+                return false
+            }
 
         }        
 
